@@ -61,3 +61,6 @@ images:
 - name: ghcr.io/singhgauravlinux-coder/bakery-multistage-currency-live/frontend
   newName: ghcr.io/singhgauravlinux-coder/bakery-multistage-currency-live/frontend
   newTag: aaa709a
+- name: ghcr.io/singhgauravlinux-coder/bakery-multistage-currency-live/loyalty-service
+  newName: ghcr.io/singhgauravlinux-coder/bakery-multistage-currency-live/loyalty-service
+  newTag: 2fb473c
