@@ -18,6 +18,7 @@ commonLabels:
 
 
 
+
 patches:
 - path: patch-ingress-host.yaml
   target:
@@ -56,3 +57,6 @@ images:
 - name: ghcr.io/singhgauravlinux-coder/bakery-multistage-currency-live/auth-service
   newName: ghcr.io/singhgauravlinux-coder/bakery-multistage-currency-live/auth-service
   newTag: d508d9a
+- name: ghcr.io/singhgauravlinux-coder/bakery-multistage-currency-live/baking-schedule-service
+  newName: ghcr.io/singhgauravlinux-coder/bakery-multistage-currency-live/baking-schedule-service
+  newTag: 32fa62d
