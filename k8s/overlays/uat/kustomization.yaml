@@ -16,6 +16,7 @@ resources:
 commonLabels:
   environment: uat
 
+
 patches:
 - path: patch-ingress-host.yaml
   target:
@@ -47,4 +48,7 @@ patches:
     kind: Deployment
     labelSelector: app.kubernetes.io/part-of=crumb-and-ember
 
-images: []
+images:
+- name: ghcr.io/singhgauravlinux-coder/bakery-multistage-currency-live/analytics-service
+  newName: ghcr.io/singhgauravlinux-coder/bakery-multistage-currency-live/analytics-service
+  newTag: 3b41643
