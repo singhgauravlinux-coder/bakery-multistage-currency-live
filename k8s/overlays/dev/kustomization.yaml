@@ -1,0 +1,140 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+# ---------------------------------------------------------------------------
+# DEV overlay
+#   - one namespace per env, everything else inherited from ../../base
+#   - 1 replica per service (cheap, fast feedback)
+#   - images are pinned per-service by the service's own CI pipeline via
+#     `kustomize edit set image` (see .github/workflows/_service-pipeline.yml)
+# ---------------------------------------------------------------------------
+
+  # Every service Deployment has exactly one container, so a positional
+  # JSON6902 patch (index 0) works regardless of container name and applies
+  # identically to all 25 services in one shot.
+namespace: bakery-dev
+
+resources:
+- ../../base
+- ../../base/ingress
+
+commonLabels:
+  environment: dev
+
+    
+
+
+
+
+
+patches:
+- path: patch-ingress-host.yaml
+  target:
+    kind: Ingress
+    name: bakery-ingress
+- path: patch-ingress-middleware.yaml
+  target:
+    kind: Ingress
+    name: bakery-ingress
+- path: patch-db-ingress-host.yaml
+  target:
+    kind: Ingress
+    name: bakery-db-ingress
+- patch: |-
+    - op: replace
+      path: /spec/template/spec/containers/0/resources
+      value:
+        requests:
+          cpu: 25m
+          memory: 64Mi
+        limits:
+          cpu: 150m
+          memory: 192Mi
+
+    - op: replace
+      path: /spec/replicas
+      value: 1
+  target:
+    kind: Deployment
+    labelSelector: app.kubernetes.io/part-of=crumb-and-ember
+
+# Image tags are rewritten in-place by each service's pipeline, e.g.:
+#   images:
+#     - name: ghcr.io/OWNER/bakery-language/auth-service
+#       newTag: <short-sha>
+images:
+- name: ghcr.io/singhgauravlinux-coder/bakery-multistage-test/analytics-service
+  newName: ghcr.io/singhgauravlinux-coder/bakery-multistage-test/analytics-service
+  newTag: 3ce883b
+- name: ghcr.io/singhgauravlinux-coder/bakery-multistage-test/api-gateway
+  newName: ghcr.io/singhgauravlinux-coder/bakery-multistage-test/api-gateway
+  newTag: 9b89017
+- name: ghcr.io/singhgauravlinux-coder/bakery-multistage-test/auth-service
+  newName: ghcr.io/singhgauravlinux-coder/bakery-multistage-test/auth-service
+  newTag: 3e2255a
+- name: ghcr.io/singhgauravlinux-coder/bakery-multistage-test/baking-schedule-service
+  newName: ghcr.io/singhgauravlinux-coder/bakery-multistage-test/baking-schedule-service
+  newTag: 5f51428
+- name: ghcr.io/singhgauravlinux-coder/bakery-multistage-test/cart-service
+  newName: ghcr.io/singhgauravlinux-coder/bakery-multistage-test/cart-service
+  newTag: 1787d66
+- name: ghcr.io/singhgauravlinux-coder/bakery-multistage-test/currency-service
+  newName: ghcr.io/singhgauravlinux-coder/bakery-multistage-test/currency-service
+  newTag: 79fd313
+- name: ghcr.io/singhgauravlinux-coder/bakery-multistage-test/delivery-service
+  newName: ghcr.io/singhgauravlinux-coder/bakery-multistage-test/delivery-service
+  newTag: 994c26f
+- name: ghcr.io/singhgauravlinux-coder/bakery-multistage-test/frontend
+  newName: ghcr.io/singhgauravlinux-coder/bakery-multistage-test/frontend
+  newTag: 865c2d3
+- name: ghcr.io/singhgauravlinux-coder/bakery-multistage-test/inventory-service
+  newName: ghcr.io/singhgauravlinux-coder/bakery-multistage-test/inventory-service
+  newTag: 6a60687
+- name: ghcr.io/singhgauravlinux-coder/bakery-multistage-test/invoice-service
+  newName: ghcr.io/singhgauravlinux-coder/bakery-multistage-test/invoice-service
+  newTag: 3e2255a
+- name: ghcr.io/singhgauravlinux-coder/bakery-multistage-test/language-service
+  newName: ghcr.io/singhgauravlinux-coder/bakery-multistage-test/language-service
+  newTag: 5a4c1aa
+- name: ghcr.io/singhgauravlinux-coder/bakery-multistage-test/loyalty-service
+  newName: ghcr.io/singhgauravlinux-coder/bakery-multistage-test/loyalty-service
+  newTag: e1bbe35
+- name: ghcr.io/singhgauravlinux-coder/bakery-multistage-test/media-service
+  newName: ghcr.io/singhgauravlinux-coder/bakery-multistage-test/media-service
+  newTag: 590f97b
+- name: ghcr.io/singhgauravlinux-coder/bakery-multistage-test/notification-service
+  newName: ghcr.io/singhgauravlinux-coder/bakery-multistage-test/notification-service
+  newTag: cf63bc5
+- name: ghcr.io/singhgauravlinux-coder/bakery-multistage-test/order-service
+  newName: ghcr.io/singhgauravlinux-coder/bakery-multistage-test/order-service
+  newTag: 3e2255a
+- name: ghcr.io/singhgauravlinux-coder/bakery-multistage-test/payment-service
+  newName: ghcr.io/singhgauravlinux-coder/bakery-multistage-test/payment-service
+  newTag: 3e2255a
+- name: ghcr.io/singhgauravlinux-coder/bakery-multistage-test/pricing-service
+  newName: ghcr.io/singhgauravlinux-coder/bakery-multistage-test/pricing-service
+  newTag: c6f47b5
+- name: ghcr.io/singhgauravlinux-coder/bakery-multistage-test/product-catalog-service
+  newName: ghcr.io/singhgauravlinux-coder/bakery-multistage-test/product-catalog-service
+  newTag: 03a99c0
+- name: ghcr.io/singhgauravlinux-coder/bakery-multistage-test/promotion-service
+  newName: ghcr.io/singhgauravlinux-coder/bakery-multistage-test/promotion-service
+  newTag: 7c04c8e
+- name: ghcr.io/singhgauravlinux-coder/bakery-multistage-test/recipe-service
+  newName: ghcr.io/singhgauravlinux-coder/bakery-multistage-test/recipe-service
+  newTag: dc77837
+- name: ghcr.io/singhgauravlinux-coder/bakery-multistage-test/recommendation-service
+  newName: ghcr.io/singhgauravlinux-coder/bakery-multistage-test/recommendation-service
+  newTag: b754b04
+- name: ghcr.io/singhgauravlinux-coder/bakery-multistage-test/review-service
+  newName: ghcr.io/singhgauravlinux-coder/bakery-multistage-test/review-service
+  newTag: 7cc1767
+- name: ghcr.io/singhgauravlinux-coder/bakery-multistage-test/search-service
+  newName: ghcr.io/singhgauravlinux-coder/bakery-multistage-test/search-service
+  newTag: fed0bce
+- name: ghcr.io/singhgauravlinux-coder/bakery-multistage-test/supplier-service
+  newName: ghcr.io/singhgauravlinux-coder/bakery-multistage-test/supplier-service
+  newTag: 3ef90c6
+- name: ghcr.io/singhgauravlinux-coder/bakery-multistage-test/user-service
+  newName: ghcr.io/singhgauravlinux-coder/bakery-multistage-test/user-service
+  newTag: 265e26b
