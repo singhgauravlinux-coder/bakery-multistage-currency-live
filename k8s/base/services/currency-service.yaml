@@ -40,6 +40,18 @@ spec:
               value: "3022"
             - name: LOG_LEVEL
               value: "info"
+            # Live FX rate provider. 'open-er-api' (default) needs no key.
+            # Use 'exchangerate-api' for higher rate limits / SLA, with a key below.
+            - name: CURRENCY_API_PROVIDER
+              value: "open-er-api"
+            - name: CURRENCY_REFRESH_MS
+              value: "3600000"
+            - name: CURRENCY_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: currency-api-credentials
+                  key: apiKey
+                  optional: true # not needed for the default 'open-er-api' provider
           readinessProbe:
             httpGet:
               path: /ready
