@@ -8,18 +8,11 @@
 > flowing request arrows, pulsing status lines). GitHub renders them natively; they honor
 > `prefers-reduced-motion`. No JS, no GIFs, no image hosting.
 
-## 🎨 Pick your theme
-
-Four full color themes ship in [`docs/assets/`](docs/assets/) — every diagram in every theme:
-
+## 🎨 Theme
 | | | |
 |---|---|---|
 | 🔥 **ember** *(default)* | <img src="docs/assets/ember/hero.svg" width="380"/> | butter & espresso |
-| 🌌 **midnight** | <img src="docs/assets/midnight/hero.svg" width="380"/> | tokyo-night blues |
-| 🍵 **matcha** | <img src="docs/assets/matcha/hero.svg" width="380"/> | green tea & cream |
-| 🫐 **berry** | <img src="docs/assets/berry/hero.svg" width="380"/> | plum & rosé |
 
-Switch the whole README in one command:
 
 ```bash
 sed -i 's#docs/assets/[a-z]*/#docs/assets/midnight/#g' README.md   # or matcha / berry / ember
