@@ -64,6 +64,9 @@ images:
 - name: ghcr.io/singhgauravlinux-coder/bakery-multistage-currency-live/frontend
   newName: ghcr.io/singhgauravlinux-coder/bakery-multistage-currency-live/frontend
   newTag: aaa709a
+- name: ghcr.io/singhgauravlinux-coder/bakery-multistage-currency-live/inventory-service
+  newName: ghcr.io/singhgauravlinux-coder/bakery-multistage-currency-live/inventory-service
+  newTag: 2fb473c
 - name: ghcr.io/singhgauravlinux-coder/bakery-multistage-currency-live/invoice-service
   newName: ghcr.io/singhgauravlinux-coder/bakery-multistage-currency-live/invoice-service
   newTag: 2fb473c
