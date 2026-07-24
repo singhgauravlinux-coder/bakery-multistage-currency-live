@@ -17,6 +17,7 @@ commonLabels:
   environment: uat
 
 
+
 patches:
 - path: patch-ingress-host.yaml
   target:
@@ -52,3 +53,6 @@ images:
 - name: ghcr.io/singhgauravlinux-coder/bakery-multistage-currency-live/analytics-service
   newName: ghcr.io/singhgauravlinux-coder/bakery-multistage-currency-live/analytics-service
   newTag: 3b41643
+- name: ghcr.io/singhgauravlinux-coder/bakery-multistage-currency-live/auth-service
+  newName: ghcr.io/singhgauravlinux-coder/bakery-multistage-currency-live/auth-service
+  newTag: d508d9a
