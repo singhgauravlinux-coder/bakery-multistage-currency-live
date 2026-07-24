@@ -67,3 +67,6 @@ images:
 - name: ghcr.io/singhgauravlinux-coder/bakery-multistage-currency-live/order-service
   newName: ghcr.io/singhgauravlinux-coder/bakery-multistage-currency-live/order-service
   newTag: 2fb473c
+- name: ghcr.io/singhgauravlinux-coder/bakery-multistage-currency-live/recipe-service
+  newName: ghcr.io/singhgauravlinux-coder/bakery-multistage-currency-live/recipe-service
+  newTag: 2fb473c
