@@ -67,6 +67,9 @@ patches:
 #     - name: ghcr.io/OWNER/bakery-language/auth-service
 #       newTag: <short-sha>
 images:
+- name: ghcr.io/singhgauravlinux-coder/bakery-multistage-currency-live/analytics-service
+  newName: ghcr.io/singhgauravlinux-coder/bakery-multistage-currency-live/analytics-service
+  newTag: 05fe500
 - name: ghcr.io/singhgauravlinux-coder/bakery-multistage-currency-live/api-gateway
   newName: ghcr.io/singhgauravlinux-coder/bakery-multistage-currency-live/api-gateway
   newTag: 05fe500
