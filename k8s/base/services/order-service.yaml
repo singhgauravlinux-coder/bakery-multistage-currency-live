@@ -24,7 +24,7 @@ spec:
           type: RuntimeDefault
       containers:
         - name: order-service
-          image: ghcr.io/singhgauravlinux-coder/bakery-multistage-test/order-service:2e71aee
+          image: ghcr.io/singhgauravlinux-coder/bakery-multistage-currency-live/order-service:2e71aee
           imagePullPolicy: Always
           ports:
             - containerPort: 3007
