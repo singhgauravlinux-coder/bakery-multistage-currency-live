@@ -25,6 +25,7 @@ commonLabels:
 
 
 
+
 patches:
 - path: patch-ingress-host.yaml
   target:
@@ -59,6 +60,9 @@ patches:
 images:
 - name: ghcr.io/singhgauravlinux-coder/bakery-multistage-currency-live/auth-service
   newName: ghcr.io/singhgauravlinux-coder/bakery-multistage-currency-live/auth-service
+  newTag: 05fe500
+- name: ghcr.io/singhgauravlinux-coder/bakery-multistage-currency-live/currency-service
+  newName: ghcr.io/singhgauravlinux-coder/bakery-multistage-currency-live/currency-service
   newTag: 05fe500
 - name: ghcr.io/singhgauravlinux-coder/bakery-multistage-currency-live/delivery-service
   newName: ghcr.io/singhgauravlinux-coder/bakery-multistage-currency-live/delivery-service
