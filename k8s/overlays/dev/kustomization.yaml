@@ -73,6 +73,9 @@ images:
 - name: ghcr.io/singhgauravlinux-coder/bakery-multistage-currency-live/api-gateway
   newName: ghcr.io/singhgauravlinux-coder/bakery-multistage-currency-live/api-gateway
   newTag: 05fe500
+- name: ghcr.io/singhgauravlinux-coder/bakery-multistage-currency-live/auth-service
+  newName: ghcr.io/singhgauravlinux-coder/bakery-multistage-currency-live/auth-service
+  newTag: 05fe500
 - name: ghcr.io/singhgauravlinux-coder/bakery-multistage-currency-live/delivery-service
   newName: ghcr.io/singhgauravlinux-coder/bakery-multistage-currency-live/delivery-service
   newTag: 05fe500
