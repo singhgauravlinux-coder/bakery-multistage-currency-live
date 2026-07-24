@@ -55,3 +55,6 @@ images:
 - name: ghcr.io/singhgauravlinux-coder/bakery-multistage-currency-live/currency-service
   newName: ghcr.io/singhgauravlinux-coder/bakery-multistage-currency-live/currency-service
   newTag: 4a17595
+- name: ghcr.io/singhgauravlinux-coder/bakery-multistage-currency-live/delivery-service
+  newName: ghcr.io/singhgauravlinux-coder/bakery-multistage-currency-live/delivery-service
+  newTag: "9544919"
