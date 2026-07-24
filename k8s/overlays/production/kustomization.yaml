@@ -88,3 +88,6 @@ images:
 - name: ghcr.io/singhgauravlinux-coder/bakery-multistage-currency-live/search-service
   newName: ghcr.io/singhgauravlinux-coder/bakery-multistage-currency-live/search-service
   newTag: 2fb473c
+- name: ghcr.io/singhgauravlinux-coder/bakery-multistage-currency-live/supplier-service
+  newName: ghcr.io/singhgauravlinux-coder/bakery-multistage-currency-live/supplier-service
+  newTag: 2fb473c
